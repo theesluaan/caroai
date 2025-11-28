@@ -27,8 +27,8 @@ public class ActivityLog {
     
     /**
      * Lưu kết quả game vào file log
-     * @param winner 1: User thắng, 2: AI thắng, 0: Hòa
-     * @param userMoves số nước đi của User
+     * @param winner 1: Người chơi thắng, 2: AI thắng, 0: Hòa
+     * @param userMoves số nước đi của người chơi
      * @param aiMoves số nước đi của AI
      * @param gameTime thời gian chơi (giây)
      */
@@ -46,7 +46,7 @@ public class ActivityLog {
             String result;
             switch (winner) {
                 case Value.USER_VALUE:
-                    result = "User thắng";
+                    result = "Người chơi thắng";
                     break;
                 case Value.AI_VALUE:
                     result = "AI thắng";
@@ -115,7 +115,7 @@ public class ActivityLog {
         int userWins = 0, aiWins = 0, draws = 0;
         
         for (String line : history) {
-            if (line.contains("User thắng")) userWins++;
+            if (line.contains("Người chơi thắng")) userWins++;
             else if (line.contains("AI thắng")) aiWins++;
             else if (line.contains("Hòa")) draws++;
         }

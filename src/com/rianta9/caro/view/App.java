@@ -235,7 +235,7 @@ public class App extends JFrame implements MouseListener{
 				cell[i][j].setSize(Value.CELL_WIDTH, Value.CELL_WIDTH); // kích cỡ mỗi cell
 				cell[i][j].setOpaque(true);
 				cell[i][j].setBorder(cellBorder);
-				cell[i][j].setFont(new Font("Comic Sans MS", Font.BOLD, TEXT_CELL_SIZE));
+				cell[i][j].setFont(new Font("Arial", Font.BOLD, TEXT_CELL_SIZE));
 				cell[i][j].setBackground(setting.getCellColor());
 				cell[i][j].setForeground(setting.getxColor());
 				cell[i][j].setHorizontalAlignment(SwingConstants.CENTER); // căn giữa chữ
@@ -248,7 +248,7 @@ public class App extends JFrame implements MouseListener{
 		
 		// Control Panel - sẽ đặt bên phải
 		JPanel view = new JPanel();
-		view.setBackground(new Color(250, 235, 215));
+		view.setBackground(new Color(200, 230, 201));
 		view.setForeground(Color.BLACK);
 		view.setLayout(null);
 		view.setPreferredSize(new java.awt.Dimension(300, 650)); // Tăng chiều cao để chứa tất cả nút
@@ -260,27 +260,28 @@ public class App extends JFrame implements MouseListener{
 		// Thêm main panel vào content pane
 		contentPane.add(mainPanel, BorderLayout.CENTER);
 		
-		JLabel lbltitle = new JLabel("GAME CARO");
+		JLabel lbltitle = new JLabel("CỜ CARO AI");
 		lbltitle.setHorizontalAlignment(SwingConstants.CENTER);
-		lbltitle.setFont(new Font("Comic Sans MS", Font.BOLD, 40));
+		lbltitle.setFont(new Font("Segoe UI Black", Font.BOLD, 40));
+		lbltitle.setForeground(new Color(255, 69, 0));
 		lbltitle.setBounds(10, 11, 254, 50);
 		view.add(lbltitle);
-		
-		JLabel lblMode = new JLabel("Mode:");
+
+		JLabel lblMode = new JLabel("Chế độ:");
 		lblMode.setHorizontalAlignment(SwingConstants.LEFT);
 		lblMode.setForeground(new Color(0, 0, 139));
-		lblMode.setFont(new Font("Comic Sans MS", Font.PLAIN, 16));
+		lblMode.setFont(new Font("Arial", Font.PLAIN, 16));
 		lblMode.setBounds(10, 162, 254, 20);
 		view.add(lblMode);
 		
-		JButton btnNewGame = new JButton("New Game");
+		JButton btnNewGame = new JButton("Chơi mới");
 		btnNewGame.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int result = JOptionPane.showConfirmDialog(null, "Bạn có muốn chơi mới?", "Xác nhận", JOptionPane.YES_NO_OPTION);
 				if(result == JOptionPane.YES_OPTION) newGame();
 			}
 		});
-		btnNewGame.setFont(new Font("Comic Sans MS", Font.BOLD, 12));
+		btnNewGame.setFont(new Font("Arial", Font.BOLD, 12));
 		btnNewGame.setBounds(30, 470, 89, 37); // Di chuyển xuống dưới separator
 		btnNewGame.setBackground(new Color(255, 20, 147));
 		btnNewGame.setForeground(new Color(85, 107, 47));
@@ -288,14 +289,14 @@ public class App extends JFrame implements MouseListener{
 		btnNewGame.setBorder(new RoundedBorder(10));
 		view.add(btnNewGame);
 		
-		JButton btnExitGame = new JButton("Exit Game");
+		JButton btnExitGame = new JButton("Thoát trò chơi");
 		btnExitGame.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int result = JOptionPane.showConfirmDialog(null, "Bạn có muốn đóng trò chơi?", "Xác nhận", JOptionPane.YES_NO_OPTION);
 				if(result == JOptionPane.YES_OPTION) System.exit(0); // thoát game
 			}
 		});
-		btnExitGame.setFont(new Font("Comic Sans MS", Font.BOLD, 12));
+		btnExitGame.setFont(new Font("Arial", Font.BOLD, 12));
 		btnExitGame.setOpaque(false);
 		btnExitGame.setForeground(new Color(85, 107, 47));
 		btnExitGame.setBorder(new RoundedBorder(10));
@@ -304,7 +305,7 @@ public class App extends JFrame implements MouseListener{
 		view.add(btnExitGame);
 		
 		// Nút Undo
-		btnUndo = new JButton("Undo");
+		btnUndo = new JButton("Hoàn tác");
 		btnUndo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				com.rianta9.caro.bean.Cell undoneCell = caro.undo();
@@ -324,7 +325,7 @@ public class App extends JFrame implements MouseListener{
 				}
 			}
 		});
-		btnUndo.setFont(new Font("Comic Sans MS", Font.BOLD, 12));
+		btnUndo.setFont(new Font("Arial", Font.BOLD, 12));
 		btnUndo.setOpaque(false);
 		btnUndo.setForeground(new Color(85, 107, 47));
 		btnUndo.setBorder(new RoundedBorder(10));
@@ -334,7 +335,7 @@ public class App extends JFrame implements MouseListener{
 		view.add(btnUndo);
 		
 		// Nút Redo
-		btnRedo = new JButton("Redo");
+		btnRedo = new JButton("Làm lại");
 		btnRedo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				com.rianta9.caro.bean.Cell redoneCell = caro.redo();
@@ -344,7 +345,7 @@ public class App extends JFrame implements MouseListener{
 				}
 			}
 		});
-		btnRedo.setFont(new Font("Comic Sans MS", Font.BOLD, 12));
+		btnRedo.setFont(new Font("Arial", Font.BOLD, 12));
 		btnRedo.setOpaque(false);
 		btnRedo.setForeground(new Color(85, 107, 47));
 		btnRedo.setBorder(new RoundedBorder(10));
@@ -353,8 +354,8 @@ public class App extends JFrame implements MouseListener{
 		btnRedo.setEnabled(false);
 		view.add(btnRedo);
 		
-		JRadioButton rdbtnUserPlaysFirst = new JRadioButton("User plays first");
-		JRadioButton rdbtnAiPlaysFirst = new JRadioButton("AI plays first");
+		JRadioButton rdbtnUserPlaysFirst = new JRadioButton("Người chơi trước");
+		JRadioButton rdbtnAiPlaysFirst = new JRadioButton("AI chơi trước");
 		if(setting.getMode() == 0) rdbtnUserPlaysFirst.setSelected(true);
 		else rdbtnAiPlaysFirst.setSelected(true);
 		
@@ -374,7 +375,7 @@ public class App extends JFrame implements MouseListener{
 				}
 			}
 		});
-		rdbtnUserPlaysFirst.setFont(new Font("Comic Sans MS", Font.PLAIN, 14));
+		rdbtnUserPlaysFirst.setFont(new Font("Arial", Font.PLAIN, 14));
 		buttonGroup.add(rdbtnUserPlaysFirst);
 		rdbtnUserPlaysFirst.setOpaque(false);
 		rdbtnUserPlaysFirst.setBounds(26, 192, 232, 23);
@@ -396,25 +397,25 @@ public class App extends JFrame implements MouseListener{
 				}
 			}
 		});
-		rdbtnAiPlaysFirst.setFont(new Font("Comic Sans MS", Font.PLAIN, 14));
+		rdbtnAiPlaysFirst.setFont(new Font("Arial", Font.PLAIN, 14));
 		buttonGroup.add(rdbtnAiPlaysFirst);
 		rdbtnAiPlaysFirst.setOpaque(false);
 		rdbtnAiPlaysFirst.setBounds(26, 218, 232, 23);
 		view.add(rdbtnAiPlaysFirst);
 		
 		// ComboBox chọn mức độ khó
-		JLabel lblDifficulty = new JLabel("Difficulty:");
+		JLabel lblDifficulty = new JLabel("Mức:");
 		lblDifficulty.setHorizontalAlignment(SwingConstants.LEFT);
 		lblDifficulty.setForeground(new Color(0, 0, 139));
-		lblDifficulty.setFont(new Font("Comic Sans MS", Font.PLAIN, 16));
+		lblDifficulty.setFont(new Font("Arial", Font.PLAIN, 16));
 		lblDifficulty.setBounds(10, 250, 254, 20);
 		view.add(lblDifficulty);
 		
 		cmbDifficulty = new JComboBox<String>();
-		cmbDifficulty.addItem("Easy");
-		cmbDifficulty.addItem("Medium");
-		cmbDifficulty.addItem("Hard");
-		cmbDifficulty.addItem("Expert");
+		cmbDifficulty.addItem("Dễ");
+		cmbDifficulty.addItem("Trung bình");
+		cmbDifficulty.addItem("Khó");
+		cmbDifficulty.addItem("Cao thủ");
 		cmbDifficulty.setSelectedIndex(setting.getDifficulty() - 1);
 		cmbDifficulty.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -425,14 +426,14 @@ public class App extends JFrame implements MouseListener{
 				}
 			}
 		});
-		cmbDifficulty.setFont(new Font("Comic Sans MS", Font.PLAIN, 12));
+		cmbDifficulty.setFont(new Font("Arial", Font.PLAIN, 12));
 		cmbDifficulty.setBounds(26, 275, 232, 25);
 		view.add(cmbDifficulty);
 		
-		JLabel lblSetting = new JLabel("Color:");
+		JLabel lblSetting = new JLabel("Màu sắc:");
 		lblSetting.setHorizontalAlignment(SwingConstants.LEFT);
 		lblSetting.setForeground(new Color(0, 0, 139));
-		lblSetting.setFont(new Font("Comic Sans MS", Font.PLAIN, 16));
+		lblSetting.setFont(new Font("Arial", Font.PLAIN, 16));
 		lblSetting.setBounds(10, 310, 254, 20);
 		view.add(lblSetting);
 		
@@ -448,35 +449,35 @@ public class App extends JFrame implements MouseListener{
 		separator_1.setBounds(10, 149, 254, 2);
 		view.add(separator_1);
 		
-		JLabel lblUser = new JLabel("USER");
+		JLabel lblUser = new JLabel("Người chơi");
 		lblUser.setForeground(new Color(220, 20, 60));
-		lblUser.setFont(new Font("Comic Sans MS", Font.BOLD, 16));
+		lblUser.setFont(new Font("Arial", Font.BOLD, 16));
 		lblUser.setHorizontalAlignment(SwingConstants.CENTER);
 		lblUser.setBounds(10, 91, 122, 20);
 		view.add(lblUser);
 		
 		JLabel lblAI = new JLabel("AI");
 		lblAI.setForeground(new Color(0, 139, 139));
-		lblAI.setFont(new Font("Comic Sans MS", Font.BOLD, 16));
+		lblAI.setFont(new Font("Arial", Font.BOLD, 16));
 		lblAI.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAI.setBounds(142, 91, 122, 20);
 		view.add(lblAI);
 		
 		lblUserScore = new JLabel("0");
 		lblUserScore.setForeground(new Color(65, 105, 225));
-		lblUserScore.setFont(new Font("Comic Sans MS", Font.BOLD, 11));
+		lblUserScore.setFont(new Font("Arial", Font.BOLD, 11));
 		lblUserScore.setHorizontalAlignment(SwingConstants.CENTER);
 		lblUserScore.setBounds(10, 122, 122, 20);
 		view.add(lblUserScore);
 		
 		lblAIScore = new JLabel("0");
 		lblAIScore.setForeground(new Color(0, 128, 0));
-		lblAIScore.setFont(new Font("Comic Sans MS", Font.BOLD, 11));
+		lblAIScore.setFont(new Font("Arial", Font.BOLD, 11));
 		lblAIScore.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAIScore.setBounds(142, 122, 122, 20);
 		view.add(lblAIScore);
 		
-		JButton btnInfo = new JButton("Info");
+		JButton btnInfo = new JButton("Thông tin");
 		btnInfo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				notification = getNotificationInstance();
@@ -485,13 +486,13 @@ public class App extends JFrame implements MouseListener{
 		});
 		btnInfo.setOpaque(false);
 		btnInfo.setForeground(new Color(85, 107, 47));
-		btnInfo.setFont(new Font("Comic Sans MS", Font.BOLD, 12));
+		btnInfo.setFont(new Font("Arial", Font.BOLD, 12));
 		btnInfo.setBorder(new RoundedBorder(10));
 		btnInfo.setBackground(new Color(255, 20, 147));
 		btnInfo.setBounds(156, 520, 89, 37); // Di chuyển xuống dưới
 		view.add(btnInfo);
 		
-		JButton btnIntroduce = new JButton("Introduce");
+		JButton btnIntroduce = new JButton("Về game");
 		btnIntroduce.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				notification = getNotificationInstance();
@@ -500,24 +501,24 @@ public class App extends JFrame implements MouseListener{
 		});
 		btnIntroduce.setOpaque(false);
 		btnIntroduce.setForeground(new Color(85, 107, 47));
-		btnIntroduce.setFont(new Font("Comic Sans MS", Font.BOLD, 12));
+		btnIntroduce.setFont(new Font("Arial", Font.BOLD, 12));
 		btnIntroduce.setBorder(new RoundedBorder(10));
 		btnIntroduce.setBackground(new Color(255, 20, 147));
 		btnIntroduce.setBounds(30, 520, 89, 37); // Di chuyển xuống dưới
 		view.add(btnIntroduce);
 		
 		// Nút Statistics
-		btnStatistics = new JButton("Statistics");
+		btnStatistics = new JButton("Thống kê");
 		btnStatistics.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int[] stats = ActivityLog.getStatistics();
 				String statsText = String.format(
 					"THỐNG KÊ GAME\n\n" +
 					"Tổng số game: %d\n" +
-					"User thắng: %d\n" +
+					"Người thắng: %d\n" +
 					"AI thắng: %d\n" +
 					"Hòa: %d\n\n" +
-					"Tỷ lệ thắng của User: %.1f%%",
+					"Tỷ lệ thắng của người chơi: %.1f%%",
 					stats[3], stats[0], stats[1], stats[2],
 					stats[3] > 0 ? (double)stats[0] / stats[3] * 100 : 0
 				);
@@ -527,14 +528,14 @@ public class App extends JFrame implements MouseListener{
 		});
 		btnStatistics.setOpaque(false);
 		btnStatistics.setForeground(new Color(85, 107, 47));
-		btnStatistics.setFont(new Font("Comic Sans MS", Font.BOLD, 12));
+		btnStatistics.setFont(new Font("Arial", Font.BOLD, 12));
 		btnStatistics.setBorder(new RoundedBorder(10));
 		btnStatistics.setBackground(new Color(255, 20, 147));
 		btnStatistics.setBounds(156, 560, 89, 37); // Di chuyển xuống dưới
 		view.add(btnStatistics);
 		
 		// Nút History
-		btnHistory = new JButton("History");
+		btnHistory = new JButton("Lịch sử");
 		btnHistory.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				List<String> history = ActivityLog.getGameHistory();
@@ -554,7 +555,7 @@ public class App extends JFrame implements MouseListener{
 		});
 		btnHistory.setOpaque(false);
 		btnHistory.setForeground(new Color(85, 107, 47));
-		btnHistory.setFont(new Font("Comic Sans MS", Font.BOLD, 12));
+		btnHistory.setFont(new Font("Arial", Font.BOLD, 12));
 		btnHistory.setBorder(new RoundedBorder(10));
 		btnHistory.setBackground(new Color(255, 20, 147));
 		btnHistory.setBounds(30, 560, 89, 37); // Di chuyển xuống dưới
@@ -703,7 +704,7 @@ public class App extends JFrame implements MouseListener{
 		if(player == Value.USER_VALUE) {
 			boolean result = caro.checkWinner(Value.USER_VALUE);
 			if(result == true) {
-				System.out.println("User thắng!");
+				System.out.println("Người chơi thắng!");
 				saveGameResult(Value.USER_VALUE); // Lưu kết quả
 				JOptionPane.showMessageDialog(null, "Bạn đã thắng!");
 				int currentPoint = Integer.valueOf(lblUserScore.getText())+1;
@@ -779,7 +780,7 @@ public class App extends JFrame implements MouseListener{
 		// Menu Game
 		javax.swing.JMenu gameMenu = new javax.swing.JMenu("Game");
 		
-		javax.swing.JMenuItem newGameItem = new javax.swing.JMenuItem("New Game");
+		javax.swing.JMenuItem newGameItem = new javax.swing.JMenuItem("Game mới");
 		newGameItem.addActionListener(e -> {
 			int result = JOptionPane.showConfirmDialog(null, 
 				"Bạn có muốn chơi mới?", "Xác nhận", JOptionPane.YES_NO_OPTION);
@@ -789,7 +790,7 @@ public class App extends JFrame implements MouseListener{
 		
 		gameMenu.addSeparator();
 		
-		javax.swing.JMenuItem exitItem = new javax.swing.JMenuItem("Exit");
+		javax.swing.JMenuItem exitItem = new javax.swing.JMenuItem("Đóng");
 		exitItem.addActionListener(e -> {
 			int result = JOptionPane.showConfirmDialog(null, 
 				"Bạn có muốn đóng trò chơi?", "Xác nhận", JOptionPane.YES_NO_OPTION);
@@ -823,16 +824,16 @@ public class App extends JFrame implements MouseListener{
 		menuBar.add(windowMenu);
 		
 		// Menu Help
-		javax.swing.JMenu helpMenu = new javax.swing.JMenu("Help");
+		javax.swing.JMenu helpMenu = new javax.swing.JMenu("Tra cứu");
 		
-		javax.swing.JMenuItem aboutItem = new javax.swing.JMenuItem("About");
+		javax.swing.JMenuItem aboutItem = new javax.swing.JMenuItem("về chúng tôi");
 		aboutItem.addActionListener(e -> {
 			notification = getNotificationInstance();
 			notification.show("About", "Thông Tin", Value.INFO_MESSAGE);
 		});
 		helpMenu.add(aboutItem);
 		
-		javax.swing.JMenuItem rulesItem = new javax.swing.JMenuItem("Game Rules");
+		javax.swing.JMenuItem rulesItem = new javax.swing.JMenuItem("Về game");
 		rulesItem.addActionListener(e -> {
 			notification = getNotificationInstance();
 			notification.show("Rules", "Giới Thiệu", Value.INTRODUCE_MESSAGE);
@@ -953,7 +954,7 @@ public class App extends JFrame implements MouseListener{
 			for (int i = 0; i < Value.SIZE; i++) {
 				for (int j = 0; j < Value.SIZE; j++) {
 					if(cell[i][j] != null) {
-						cell[i][j].setFont(new Font("Comic Sans MS", Font.BOLD, fontSize));
+						cell[i][j].setFont(new Font("Arial", Font.BOLD, fontSize));
 					}
 				}
 			}

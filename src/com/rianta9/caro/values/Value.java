@@ -13,13 +13,12 @@ public class Value {
 	public static final String INFO_MESSAGE = 
 		  "Trường: Đại Học Công nghệ Đông Á\n"
 		+ "Môn: Nhập Môn Trí Tuệ Nhân Tạo\n"
-		+ "Giảng viên:Ngô Thị Hoa \n"
+		+ "Giảng viên:Lê Trung Thực \n"
 		+ "Đề tài: Game cờ caro sử dụng thuật toán Minimax kêt hợp cắt tỉa Alpha beta\n"
 		+ "Thành viên thực hiện:\n"
-		+ " Phạm Quang Vinh\n"
-		+ " Đinh Trọng Đức\n"
-		+ " Nguyễn Lý Đức Duy\n"
-		+ " Đặng Tuấn Phong\n"
+		+ " Nguyễn Kim Quân\n"
+		+ " Lê Phi Hùng\n"
+		+ " Trịnh Thế Luân\n"
 		+ "Nội dung:\n"
 		+ " Game cờ caro sử dụng thuật toán Minimax kêt hợp cắt tỉa Alpha beta, bài tập nhóm môn nhập môn trí tuệ nhân tạo!";
 	public static final String INTRODUCE_MESSAGE = 
@@ -107,8 +106,7 @@ public class Value {
 		+ "Cờ caro tưởng như rất đơn giản nhưng lại là môn cờ rất phức tạp và rất hấp dẫn."
 		+ " Với một trò chơi sử dụng chủ yếu là kỹ năng logic thế này,"
 		+ " cờ caro rất phù hợp với lứa tuổi học sinh."
-		+ "\r\n"
-		+ "Nguồn bài viết: cothu.vn";
+		+ "\r\n";
 	
 	/**
 	 *  số hàng/số cột mặc định
